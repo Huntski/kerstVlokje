@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kertVlok</title>
+</head>
+<body>
+    <style>
+        body {
+            background: #000;
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /* background: url('https://cdn.discordapp.com/attachments/656050994299535370/656051639387422720/back.jpg') no-repeat; */
+        }
+
+        h1 {
+            text-align: center;
+            font-style: italic;
+            color: #fff;
+        }
+
+        .vlokje {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            z-index: 99;
+        }
+
+        line {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        .ster {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+    </style>
+    <div class="wrapper"></div>
+    <div class="bg"></div>
+</body>
+    <script src="sneeuw.js"></script>
+    <script src="vlokje.js"></script>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+  <title>Test auto Class</title>
+   <style>
+      .auto {
+         width: 2em;
+         height: 1.5em;
+         position: absolute;
+      }
+      body {overflow: auto;}
+   </style>
+</head>
+
+<body lang="nl">
+ <h1>Test auto Class</h1>
+ <!-- <script src="https://gist.github.com/Theo-denBlanken/978a7f1bba7aacf0af2fc82b21d8aa7a.js"></script> -->
+<script>
+   class Auto {
+      constructor( horizontaal, verticaal, snelheid, kleur ) {
+         this._hori  = horizontaal;
+         this._vert  = verticaal;
+         this._snelh = snelheid;
+         this._kleur = kleur;
+         this._auto;
+      }
+      // method maken: creëer een element en plaats deze in de body
+      maken() {
+         this._auto = document.createElement('div');
+         this._auto.className  = 'auto';
+         this._auto.style.top  = this._vert + 'px';
+         this._auto.style.left = this._hori + 'px';
+         this._auto.style.background = this._kleur;
+         document.body.appendChild(this._auto);
+         this.rijden();
+      }
+      // method om auto's te laten rijden
+      verplaatsen() {
+         this._hori += this._snelh;
+         // bijwerken in de DOM
+         this._auto.style.left = this._hori + 'px';
+      }
+      // rijden is een method om continue te verplaatsen
+      rijden() {
+         let bewegen = requestAnimationFrame( () => {
+            this.verplaatsen();
+            this.rijden();  // hierdoor wordt de functie continue herhaald
+         });
+      }
+   }
+
+   // twee instanties van de class Auto maken
+   let auto1 = new Auto(Math.random()*200, Math.random()*500, 4, 'red');
+   auto1.maken();
+
+   let auto2 = new Auto(Math.random()*200, Math.random()*500, 2, 'green');
+   auto2.maken();
+</script>
+</body>
+</html>
